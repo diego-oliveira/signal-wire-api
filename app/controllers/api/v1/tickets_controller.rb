@@ -3,6 +3,7 @@ class Api::V1::TicketsController < ApplicationController
     ticket = Ticket.new(ticket_params)
     ticket.tags = build_tags
     ticket.save!
+    NotifyWithHighestTag.call
     render json: ticket, status: 201
   end
 
