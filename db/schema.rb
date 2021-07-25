@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_25_185255) do
+ActiveRecord::Schema.define(version: 2021_07_25_215103) do
 
   create_table "taggings", force: :cascade do |t|
     t.integer "ticket_id", null: false
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_07_25_185255) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "taggings_count"
     t.index ["name"], name: "index_tags_on_name"
   end
 
