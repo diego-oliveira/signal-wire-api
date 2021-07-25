@@ -4,7 +4,7 @@ RSpec.describe "Tickets", :type => :request do
   describe 'POST /api/v1/tickets' do
     describe 'when all mandatory attributes are given' do
       before do
-        post api_v1_tickets_path, params: { title: 'xpto', user_id: 1234 }
+        post api_v1_tickets_path, params: { title: 'xpto', user_id: 1234, tags: ['tag one', 'tag two'] }
       end
 
       it 'returns a successful response' do
@@ -13,6 +13,10 @@ RSpec.describe "Tickets", :type => :request do
 
       it 'creates a ticket' do
         expect(Ticket.count).to be 1
+      end
+
+      it 'creates the given tags' do
+        expect(Tag.count).to be 2
       end
     end
 
