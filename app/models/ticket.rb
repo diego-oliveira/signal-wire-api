@@ -6,6 +6,6 @@ class Ticket < ApplicationRecord
   has_many :tags, through: :taggings
 
   def validate_tags
-    errors.add(:tags, "Max of five tags exceeded") if tags.size > 5
+    errors.add(:tags, "Max of five tags exceeded") if tags.size >= 5
   end
 end
